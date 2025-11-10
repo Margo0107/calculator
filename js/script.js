@@ -22,12 +22,26 @@ clear.addEventListener("click", clearAll());
 buttons.addEventListener("click", (event) => {
   if (!event.target.classList.contains("btn")) return;
   out.textContent = "";
+  //первое число
   const key = event.target.textContent;
   if (digit.includes(key)) {
-    firstNum += key;
-    out.textContent = firstNum;
-    console.log(firstNum, secondNum, sing);
+    if (secondNum === "" && sing === "") {
+      firstNum += key;
+      out.textContent = firstNum;
+      console.log(firstNum, secondNum, sing);
+    } else if (firstNum !== "" && secondNum !== "" && finish) {
+      
+    } else {
+      secondNum += key;
+      out.textContent = secondNum;
+      console.log(secondNum);
+    }
   }
+  //знак +-/ знаки
   if (operator.includes(key)) {
+    sing += key;
+    out.textContent = sing;
+    console.log(sing);
+    return;
   }
 });
