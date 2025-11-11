@@ -54,6 +54,7 @@ body {
 .btn:active {
   filter: brightness(90%);
 }
+/* screen */
 .calc-screen {
   background-color: #414144;
   height: 120px;
@@ -63,8 +64,18 @@ body {
   justify-content: end;
   align-items: end;
   margin-bottom: 15px;
+  position: relative;
 }
 .calc-screen p {
   margin: 0;
   font-size: 40px;
+  user-select: none;
+}
+.icon-theme {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  fill: currentColor;
+  color: aliceblue;
 }
