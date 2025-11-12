@@ -49,7 +49,7 @@ buttons.addEventListener("click", (event) => {
     }
     return;
   }
-  //знак +-/ знаки
+  //symbol: +-/
   if (operator.includes(key)) {
     sing = key;
     out.textContent = sing;

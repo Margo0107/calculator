@@ -1,3 +1,22 @@
 body.dark .icon-theme {
-  color: black;
+  color: rgb(114, 114, 124);
+}
+.light-bg {
+  color: rgb(114, 114, 124);
+  background-color: rgb(226, 226, 245);
+  box-shadow: 0px 2px 9px 2px #5c4c8bc2;
+}
+.screen-light {
+  background-color: #c9c9db;
+  box-shadow: 0px 1px 15px 1px rgb(173 116 207);
+}
+.buttons-light {
+  background-color: #8b8b9b;
+  box-shadow: 2px 6px 4px #302d35cf;
+}
+.bg-light-gray {
+  background-color: #aaaab9;
+}
+.bg-lilac {
+  background-color: rgb(193, 125, 233);
 }
