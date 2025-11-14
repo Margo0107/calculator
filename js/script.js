@@ -17,6 +17,7 @@ function clearAll() {
   sing = "";
   finish = false;
   out.textContent = "0";
+  resetFont();
   console.log("clearAll");
 }
 clear.addEventListener("click", clearAll);
@@ -27,16 +28,40 @@ function deleteSecondNum() {
   console.log("delete two number");
 }
 
+function resetFont() {
+  out.style.fontSize = "40px";
+}
+//reducing text size when there is a large set of numbers
+function fitText() {
+  const maxWidth = 240;
+  let fontSize = parseInt(getComputedStyle(out).fontSize);
+
+  while (out.scrollWidth > maxWidth && fontSize > 12) {
+    fontSize--;
+    out.style.fontSize = fontSize + "px";
+  }
+  if (out.scrollWidth > maxWidth) {
+    return false;
+  }
+  return true;
+}
+
 btnDelete.addEventListener("click", deleteSecondNum);
 
 buttons.addEventListener("click", (event) => {
   if (!event.target.classList.contains("btn")) return;
-  //первое число
+  //first number
   const key = event.target.textContent;
   if (digit.includes(key)) {
     if (secondNum === "" && sing === "") {
       firstNum += key;
       out.textContent = firstNum;
+
+      if (!fitText()) {
+        firstNum = firstNum.slice(0, -1);
+        out.textContent = firstNum;
+        return;
+      }
       console.log("первое число", firstNum);
     } else if (firstNum !== "" && secondNum !== "" && finish) {
       secondNum = key;
@@ -45,6 +70,11 @@ buttons.addEventListener("click", (event) => {
     } else {
       secondNum += key;
       out.textContent = secondNum;
+      if (!fitText()) {
+        secondNum = secondNum.slice(0, -1);
+        out.textContent = secondNum;
+        return;
+      }
       console.log("второе число", secondNum);
     }
     return;
@@ -88,6 +118,7 @@ buttons.addEventListener("click", (event) => {
     }
     finish = true;
     out.textContent = firstNum;
+    fitText();
     console.log(firstNum);
   }
 });

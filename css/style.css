@@ -64,11 +64,14 @@ body {
   justify-content: end;
   align-items: end;
   margin-bottom: 15px;
+  flex-direction: column;
   position: relative;
 }
 .calc-screen p {
   margin: 0;
   font-size: 40px;
+  max-width: 240px;
+  overflow: hidden;
   user-select: none;
 }
 .icon-theme {
