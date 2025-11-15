@@ -10,6 +10,7 @@ const out = document.querySelector(".calc-screen p");
 const clear = document.querySelector(".clear");
 const buttons = document.querySelector(".buttons");
 const btnDelete = document.querySelector(".del");
+const secondaryDisplay = document.querySelector(".secondary_display");
 
 function clearAll() {
   firstNum = "";
@@ -17,20 +18,26 @@ function clearAll() {
   sing = "";
   finish = false;
   out.textContent = "0";
+  clearSecondaryDisplay();
   resetFont();
   console.log("clearAll");
 }
 clear.addEventListener("click", clearAll);
 
+// clearing the second screen
+function clearSecondaryDisplay() {
+  secondaryDisplay.textContent = "";
+}
 function deleteSecondNum() {
   secondNum = "";
   out.textContent = "";
   console.log("delete two number");
 }
-
+//reset to original font
 function resetFont() {
   out.style.fontSize = "40px";
 }
+
 //reducing text size when there is a large set of numbers
 function fitText() {
   const maxWidth = 240;
@@ -62,6 +69,7 @@ buttons.addEventListener("click", (event) => {
         out.textContent = firstNum;
         return;
       }
+
       console.log("первое число", firstNum);
     } else if (firstNum !== "" && secondNum !== "" && finish) {
       secondNum = key;
@@ -89,6 +97,7 @@ buttons.addEventListener("click", (event) => {
   //click equal
   if (key === "=") {
     if (secondNum === "") secondNum = firstNum;
+    secondaryDisplay.textContent = `${firstNum} ${sing} ${secondNum}`;
     switch (sing) {
       case "+":
         firstNum = +firstNum + +secondNum;

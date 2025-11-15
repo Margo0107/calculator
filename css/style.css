@@ -74,6 +74,11 @@ body {
   overflow: hidden;
   user-select: none;
 }
+.secondary_display {
+  overflow: hidden;
+  color: #a2a2ad;
+  user-select: none;
+}
 .icon-theme {
   position: absolute;
   top: 10px;
