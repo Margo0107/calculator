@@ -65,6 +65,7 @@ body {
   align-items: end;
   margin-bottom: 15px;
   flex-direction: column;
+  gap: 5px;
   position: relative;
 }
 .calc-screen p {
@@ -76,8 +77,10 @@ body {
 }
 .secondary_display {
   overflow: hidden;
-  color: #a2a2ad;
+  --color-span: #a2a2ad;
+  color: var(--color-span);
   user-select: none;
+  /* font-size: 14px; */
 }
 .icon-theme {
   position: absolute;
