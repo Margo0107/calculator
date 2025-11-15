@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnFirstRow.forEach((btn) => btn.classList.toggle("bg-light-gray"));
     btnSecondRow.forEach((btn) => btn.classList.toggle("bg-lilac"));
+    
     if (document.body.classList.contains("dark")) {
       secondaryDisplay.style.setProperty("--color-span", "#7c6d97ff");
     } else {

@@ -76,11 +76,12 @@ body {
   user-select: none;
 }
 .secondary_display {
-  overflow: hidden;
   --color-span: #a2a2ad;
   color: var(--color-span);
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: ellipsis;
   user-select: none;
-  /* font-size: 14px; */
 }
 .icon-theme {
   position: absolute;

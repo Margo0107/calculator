@@ -53,6 +53,16 @@ function fitText() {
   return true;
 }
 
+//reducing the size of the second screen when entering numbers
+function fitSecondaryNumber() {
+  const maxWidth = 240;
+  let fontSize = parseInt(getComputedStyle(secondaryDisplay).fontSize);
+  while (secondaryDisplay.scrollWidth > maxWidth && fontSize > 12) {
+    fontSize--;
+    secondaryDisplay.style.fontSize = fontSize + "px";
+  }
+}
+
 btnDelete.addEventListener("click", deleteSecondNum);
 
 buttons.addEventListener("click", (event) => {
@@ -98,6 +108,7 @@ buttons.addEventListener("click", (event) => {
   if (key === "=") {
     if (secondNum === "") secondNum = firstNum;
     secondaryDisplay.textContent = `${firstNum} ${sing} ${secondNum}`;
+    fitSecondaryNumber();
     switch (sing) {
       case "+":
         firstNum = +firstNum + +secondNum;
