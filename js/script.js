@@ -97,6 +97,10 @@ buttons.addEventListener("click", (event) => {
     }
     return;
   }
+  //rounding numbers
+  function fix(num) {
+    return Number(num.toFixed(10));
+  }
   //symbol: +-/
   if (operator.includes(key)) {
     sing = key;
@@ -111,13 +115,13 @@ buttons.addEventListener("click", (event) => {
     fitSecondaryNumber();
     switch (sing) {
       case "+":
-        firstNum = +firstNum + +secondNum;
+        firstNum = fix(+firstNum + +secondNum);
         break;
       case "-":
-        firstNum = +firstNum - +secondNum;
+        firstNum = fix(+firstNum - +secondNum);
         break;
       case "*":
-        firstNum = +firstNum * +secondNum;
+        firstNum = fix(+firstNum * +secondNum);
         break;
       case "/":
         if (+secondNum === 0) {
@@ -128,10 +132,10 @@ buttons.addEventListener("click", (event) => {
           finish = true;
           return;
         }
-        firstNum = +firstNum / +secondNum;
+        firstNum = fix(+firstNum / +secondNum);
         break;
       case "%":
-        firstNum = (+firstNum * +secondNum) / 100;
+        firstNum = fix((+firstNum * +secondNum) / 100);
         break;
       default:
         out.textContent = "error";
